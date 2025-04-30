@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormulaSnap</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>FormulaSnap</h1>
+        <div>
+            <label for="model">选择模型：</label>
+            <select id="model">
+                <option value="moonshot-v1-8k-vision-preview">Moonshot V1 8k</option>
+                <option value="other-model">其他模型（占位）</option>
+            </select>
+        </div>
+        <div>
+            <input type="file" id="screenshotInput" accept="image/png,image/jpeg">
+            <button onclick="uploadScreenshot()">上传截图</button>
+        </div>
+        <div id="preview"></div>
+        <div id="result">
+            <h3>LaTeX 代码：</h3>
+            <pre id="latexCode">未识别到公式</pre>
+            <button onclick="copyLatex()">复制 LaTeX</button>
+            <h3>渲染公式：</h3>
+            <div id="formula"></div>
+        </div>
+        <div id="status"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
