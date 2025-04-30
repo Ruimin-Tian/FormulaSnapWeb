@@ -92,6 +92,11 @@ def call_kimi_api(img_b64, model):
             time.sleep(15)
     raise HTTPException(status_code=429, detail="API rate limit exceeded")
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello, the AI formula recognizer is running."}
+
+
 @app.post("/api/recognize")
 async def recognize_formula(file: UploadFile = File(...), model: str = Form(...)):
     logger.info(f"Received file: {file.filename}, type: {file.content_type}, size: {file.size}")
