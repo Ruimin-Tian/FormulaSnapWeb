@@ -25,7 +25,7 @@ async function uploadScreenshot() {
     formData.append('model', model);
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/recognize', {
+        const response = await fetch('/api/recognize', {
             method: 'POST',
             body: formData
         });
