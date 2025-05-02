@@ -97,7 +97,7 @@ def call_kimi_api(img_b64, model):
 async def serve_spa(path: str):
     logger.info(f"Serving SPA for path: {path}")
     if path.startswith("api/"):
-        raise HTTPException(status_code=404, detail="Not found")
+        raise HTTPException(status_code=404, detail="API endpoint not found")
     return FileResponse("static/index.html")
 
 @app.post("/api/recognize")
