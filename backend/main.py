@@ -93,6 +93,11 @@ def call_kimi_api(img_b64, model):
             time.sleep(15)
     raise HTTPException(status_code=429, detail="API rate limit exceeded")
 
+@app.get("/")
+async def redirect_to_index():
+    logger.info("Serving root path: redirecting to /static/index.html")
+    return FileResponse("static/index.html")
+
 @app.get("/{path:path}")
 async def serve_spa(path: str):
     logger.info(f"Serving SPA for path: {path}")
